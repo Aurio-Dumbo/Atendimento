@@ -33,3 +33,5 @@ CREATE TABLE IF NOT EXISTS atendimentos (
     INDEX idx_cliente (cliente_id),
     INDEX idx_status (status)
 );
+
+

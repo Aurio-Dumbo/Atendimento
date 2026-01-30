@@ -1,6 +1,6 @@
 // Arquivo de Utilitários - Funções auxiliares da aplicação
 
-// Eu exibo mensagens de alerta na tela
+// exibo mensagens de alerta na tela
 function exibirAlerta(mensagem, tipo = 'success') {
   const alerta = document.getElementById('alerta');
   alerta.textContent = mensagem;
@@ -13,7 +13,7 @@ function exibirAlerta(mensagem, tipo = 'success') {
   }, 4000);
 }
 
-// Eu exibo ou escondo o spinner de carregamento
+// exibo ou escondo o spinner de carregamento
 function mostrarCarregando(mostrar = true, container = 'telasContainer') {
   // Eu busco ou crio o spinner
   let spinner = document.getElementById('spinnerCarregamento');
@@ -37,13 +37,13 @@ function mostrarCarregando(mostrar = true, container = 'telasContainer') {
   }
 }
 
-// Eu formato uma data para o padrão brasileiro
+//  formato uma data para o padrão brasileiro
 function formatarData(data) {
   const d = new Date(data);
   return d.toLocaleDateString('pt-BR');
 }
 
-// Eu retorna a cor do badge baseada no status
+// retorna a cor do badge baseada no status
 function obterCorStatus(status) {
   const cores = {
     'aberto': 'bg-danger',
@@ -53,7 +53,7 @@ function obterCorStatus(status) {
   return cores[status] || 'bg-secondary';
 }
 
-// Eu traduz o status para português
+// traduz o status para português
 function traduzirStatus(status) {
   const traducoes = {
     'aberto': 'Aberto',
@@ -63,13 +63,13 @@ function traduzirStatus(status) {
   return traducoes[status] || status;
 }
 
-// Eu valida um email
+// valida um email
 function validarEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
 
-// Eu valida um telefone (básico)
+//u valida um telefone (básico)
 function validarTelefone(telefone) {
   const regex = /^[\d\s\(\)\-\+]{10,}$/;
   return regex.test(telefone);
@@ -83,7 +83,7 @@ function limparFormulario(formId) {
   }
 }
 
-// Eu crio um modal de confirmação
+//  crio um modal de confirmação
 function confirmar(mensagem) {
   return new Promise((resolve) => {
     document.getElementById('mensagemConfirmar').textContent = mensagem;

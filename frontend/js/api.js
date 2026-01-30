@@ -1,9 +1,9 @@
 // Módulo de API - Gerencia todas as requisições ao backend
 
-// Eu defino a URL base da API
+//  defino a URL base da API
 const API_URL = 'http://localhost:3001/api';
 
-// Eu faço uma requisição GET para a API
+// faço uma requisição GET para a API
 async function apiGet(rota) {
   try {
     const resposta = await fetch(`${API_URL}${rota}`);
@@ -68,7 +68,7 @@ async function apiPut(rota, corpo) {
   }
 }
 
-// Eu faço uma requisição DELETE para a API
+// faço uma requisição DELETE para a API
 async function apiDelete(rota) {
   try {
     const resposta = await fetch(`${API_URL}${rota}`, {
@@ -88,52 +88,52 @@ async function apiDelete(rota) {
   }
 }
 
-// Eu busco todos os clientes
+// busco todos os clientes
 async function buscarClientes() {
   return apiGet('/clientes');
 }
 
-// Eu busco um cliente específico
+//  busco um cliente específico
 async function buscarCliente(id) {
   return apiGet(`/clientes/${id}`);
 }
 
-// Eu crio um novo cliente
+// crio um novo cliente
 async function criarCliente(cliente) {
   return apiPost('/clientes', cliente);
 }
 
-// Eu atualizo um cliente
+// atualizo um cliente
 async function atualizarCliente(id, cliente) {
   return apiPut(`/clientes/${id}`, cliente);
 }
 
-// Eu deleto um cliente
+// deleto um cliente
 async function deletarCliente(id) {
   return apiDelete(`/clientes/${id}`);
 }
 
-// Eu busco atendimentos de um cliente
+// busco atendimentos de um cliente
 async function buscarAtendimentos(clienteId) {
   return apiGet(`/clientes/${clienteId}/atendimentos`);
 }
 
-// Eu busco todos os atendimentos com paginação
+// busco todos os atendimentos com paginação
 async function buscarAtendimentosTodos(pagina = 1, limite = 10) {
   return apiGet(`/atendimentos?pagina=${pagina}&limite=${limite}`);
 }
 
-// Eu crio um novo atendimento
+// rio um novo atendimento
 async function criarAtendimento(clienteId, atendimento) {
   return apiPost(`/clientes/${clienteId}/atendimentos`, atendimento);
 }
 
-// Eu atualizo um atendimento
+// atualizo um atendimento
 async function atualizarAtendimento(clienteId, atendimentoId, atendimento) {
   return apiPut(`/clientes/${clienteId}/atendimentos/${atendimentoId}`, atendimento);
 }
 
-// Eu deleto um atendimento
+// eleto um atendimento
 async function deletarAtendimento(clienteId, atendimentoId) {
   return apiDelete(`/clientes/${clienteId}/atendimentos/${atendimentoId}`);
 }

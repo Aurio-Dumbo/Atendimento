@@ -36,7 +36,7 @@ async function abrirAtendimentos(clienteId, nomeCliente) {
   await carregarAtendimentosLista();
 }
 
-// Eu renderizo a página de atendimentos
+// renderizo a página de atendimentos
 function renderizarTelaAtendimentos() {
   const html = `
     <div id="telaAtendimentos">
@@ -217,7 +217,7 @@ async function carregarClientesSeletor() {
   }
 }
 
-// Eu carrego os atendimentos gerais (recentes) com paginação
+//  carrego os atendimentos gerais (recentes) com paginação
 async function carregarAtendimentosGerais() {
   mostrarCarregando(true, 'listaAtendimentosGeraisContainer');
   
@@ -233,11 +233,11 @@ async function carregarAtendimentosGerais() {
       return;
     }
 
-    // Eu atualizo os dados de paginação
+    // atualizo os dados de paginação
     atendimentosData.totalAtendimentosGeral = resultado.dados.total || 0;
     atendimentosData.totalPaginasGeral = resultado.dados.totalPaginas || 1;
 
-    // Eu renderizo cada atendimento
+    // renderizo cada atendimento
     document.getElementById('listaAtendimentosGeraisContainer').innerHTML = resultado.dados.atendimentos.map(atendimento => `
       <div class="card mb-3" data-atendimento-id="${atendimento.id}" data-cliente-id="${atendimento.cliente_id}">
         <div class="card-body">
@@ -276,7 +276,7 @@ async function carregarAtendimentosGerais() {
   }
 }
 
-// Eu atualizo a exibição dos controles de paginação
+//  atualizo a exibição dos controles de paginação
 function atualizarPaginacao() {
   const paginacaoGeral = document.getElementById('paginacaoGeral');
   const btnAnterior = document.getElementById('btnAnterior');
@@ -287,7 +287,7 @@ function atualizarPaginacao() {
   paginaAtual.textContent = atendimentosData.paginaGeral;
   totalPaginas.textContent = atendimentosData.totalPaginasGeral;
   
-  // Eu mostro ou escondo os botões baseado na página
+  //  mostro ou escondo os botões baseado na página
   if (atendimentosData.totalPaginasGeral > 1) {
     paginacaoGeral.style.display = 'block';
     btnAnterior.style.display = atendimentosData.paginaGeral > 1 ? 'block' : 'none';
@@ -297,7 +297,7 @@ function atualizarPaginacao() {
   }
 }
 
-// Eu navegue entre páginas
+// navegue entre páginas
 async function irParaPagina(direcao) {
   const novaPagina = atendimentosData.paginaGeral + direcao;
   
@@ -308,17 +308,16 @@ async function irParaPagina(direcao) {
   atendimentosData.paginaGeral = novaPagina;
   await carregarAtendimentosGerais();
   
-  // Scroll to top
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Eu mostro o seletor de cliente
 function mostrarSeletorCliente() {
   document.getElementById('seletorClienteContainer').style.display = 'block';
   document.getElementById('seletorClienteContainer').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Eu volto para os atendimentos gerais
+// E para os atendimentos gerais
 function voltarParaAtendimentosGerais() {
   atendimentosData.modo = 'geral';
   atendimentosData.clienteId = null;
@@ -329,7 +328,7 @@ function voltarParaAtendimentosGerais() {
   document.getElementById('seletorCliente').value = '';
 }
 
-// Eu seleciono um cliente e carrego seus atendimentos
+// um cliente e carrego seus atendimentos
 async function selecionarClienteAtendimentos() {
   const seletor = document.getElementById('seletorCliente');
   const clienteId = seletor.value;
@@ -339,7 +338,7 @@ async function selecionarClienteAtendimentos() {
     return;
   }
 
-  // Eu busco o nome do cliente
+  // busco o nome do cliente
   try {
     const resultado = await buscarCliente(clienteId);
     if (resultado.sucesso) {
@@ -352,10 +351,10 @@ async function selecionarClienteAtendimentos() {
       document.getElementById('containerAtendimentosGerais').style.display = 'none';
       document.getElementById('seletorClienteContainer').style.display = 'none';
       
-      // Eu limpo o formulário
+      
       limparFormulario('formularioNovoAtendimento');
       
-      // Eu carrego os atendimentos
+  
       await carregarAtendimentosLista();
     }
   } catch (erro) {
@@ -363,7 +362,7 @@ async function selecionarClienteAtendimentos() {
   }
 }
 
-// Eu carrego os atendimentos de um cliente
+// carrego os atendimentos de um cliente
 async function carregarAtendimentosLista() {
   if (!atendimentosData.clienteId) {
     return;
@@ -412,7 +411,7 @@ async function carregarAtendimentosLista() {
   }
 }
 
-// Eu handle o formulário de adicionar atendimento
+// formulário de adicionar atendimento
 async function handleAdicionarAtendimento(e) {
   e.preventDefault();
 
@@ -444,7 +443,7 @@ async function handleAdicionarAtendimento(e) {
   }
 }
 
-// Eu abro o modal de edição
+// abro o modal de edição
 async function abrirEdicaoAtendimento(atendimentoId) {
   // Eu busco o atendimento na lista visível para pegar dados
   const container = document.getElementById('listaAtendimentosContainer');

@@ -24,7 +24,7 @@ class AtendimentoController {
     }
   }
 
-  // Eu busco todos os atendimentos de um cliente
+  // usco todos os atendimentos de um cliente
   static async buscarPorCliente(req, res) {
     try {
       const { clienteId } = req.params;

@@ -2,7 +2,7 @@
 const pool = require('../config/database');
 
 class Atendimento {
-  // Eu busco todos os atendimentos de um cliente
+  // busco todos os atendimentos de um cliente
   static async buscarPorCliente(clienteId) {
     try {
       const connection = await pool.getConnection();
@@ -17,7 +17,7 @@ class Atendimento {
     }
   }
 
-  // Eu busco todos os atendimentos com paginação
+  //  busco todos os atendimentos com paginação
   static async buscarTodos(pagina = 1, limite = 10) {
     try {
       const connection = await pool.getConnection();
@@ -51,7 +51,7 @@ class Atendimento {
     }
   }
 
-  // Eu crio um novo atendimento para um cliente
+  // crio um novo atendimento para um cliente
   static async criar(dados) {
     try {
       const connection = await pool.getConnection();

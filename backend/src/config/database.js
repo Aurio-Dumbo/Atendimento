@@ -2,7 +2,7 @@
 require('dotenv').config();
 const mysql = require('mysql2/promise');
 
-// Eu crio o pool de conexões com as credenciais do .env
+// Ecrio o pool de conexões com as credenciais do .env
 const configBanco = {
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
